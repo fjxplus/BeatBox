@@ -15,7 +15,6 @@
         android:layout_height="120dp"
         android:layout_marginStart="4dp"
         android:layout_marginEnd="4dp"
-        android:onClick="@{(view) -> viewModel.onButtonClicked(view)}"
-        android:text="@{`File name: ` + viewModel.title ?? `No File`}"
-        app:soundName="@{`Sound file name: ` + viewModel.title}" />
+        android:onClick="@{() -> viewModel.onButtonClicked()}"
+        android:text="@{`File name: ` + viewModel.title ?? `No File`}"/>
 </layout>

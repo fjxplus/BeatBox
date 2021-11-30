@@ -1,9 +1,6 @@
 package com.fanjiaxing.android.beatbox
 
-import android.util.Log
-import android.view.View
 import android.widget.Button
-import android.widget.Toast
 import androidx.databinding.BaseObservable
 import androidx.databinding.Bindable
 import androidx.databinding.BindingAdapter
@@ -14,7 +11,7 @@ private const val TAG = "BeatBox"
  * 视图模型层，保存和视图相关联的数据
  * 需要和布局文件进行沟通，使用绑定的Observable接口(BaseObservable)，或使用LivaData和数据绑定
  */
-class SoundViewModel : BaseObservable() {
+class SoundViewModel(private val beatBox: BeatBox) : BaseObservable() {
 
     var sound: Sound? = null
         set(sound) {
@@ -26,11 +23,12 @@ class SoundViewModel : BaseObservable() {
     val title: String?
         get() = sound?.name
 
-    fun onButtonClicked(view: View) {
-
-        title?.let {
-            Log.d(TAG, it)
-            Toast.makeText(view.context, title, Toast.LENGTH_SHORT).show()
+    /**
+     * 按钮回调，播放音频
+     */
+    fun onButtonClicked() {
+        sound?.let {
+            beatBox.play(it)
         }
     }
 
@@ -44,5 +42,6 @@ class SoundViewModel : BaseObservable() {
  */
 @BindingAdapter("app:soundName")
 fun bindAssetSound(button: Button, assetFileName: String) {
-    Log.d(TAG, assetFileName)
+    //Log.d(TAG, assetFileName)
 }
+
