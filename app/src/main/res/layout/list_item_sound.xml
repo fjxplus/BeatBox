@@ -10,11 +10,17 @@
     </data>
 
     <!--  使用@{ }便可以使用视图模型属性，可以以调用使用BindingAdapter注解的属性  <-->
-    <Button
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginEnd="4dp"
-        android:onClick="@{() -> viewModel.onButtonClicked()}"
-        android:text="@{`File name: ` + viewModel.title ?? `No File`}"/>
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp">
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:onClick="@{() -> viewModel.onButtonClicked()}"
+            android:text="@{viewModel.title}"/>
+    </FrameLayout>
+
 </layout>

@@ -27,16 +27,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:text="播放速度" />
+                    android:text="@string/play_rate" />
 
                 <SeekBar
                     android:id="@+id/seek_bar"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/seek_bar_text" />
+                    android:layout_height="wrap_content" />
             </LinearLayout>
 
             <Button
+                style="@style/Widget.AppCompat.Button.Colored"
                 android:id="@+id/init_progress"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
